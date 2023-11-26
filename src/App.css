@@ -1,38 +1,144 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+input:focus-visible {
+  outline: transparent;
+}
+
+.App {
+  text-align: center;
+  color: aliceblue;
+  --ceu: #4c6bab;
+  --ceu_dark: #282c34;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .MainIcon {
+    animation: pulse infinite 5s ease-in-out alternate-reverse;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@keyframes pulse {
+  from {
+    transform: scale(.95) rotate(-10deg);
+  }
+
+  to {
+    transform: scale(1) rotate(0);
+  }
+}
+
+header {
+  background-color: var(--ceu);
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .25rem;
+  transition-property: background;
+  transition: 1s ease-in-out;
+}
+
+/* .App:has(main>div>.noite)>header {
+  background-color: var(--ceu_dark);
+} */
+
+header>img {
+  height: 2rem;
+}
+
+main {
+  height: 40rem;
+  background-image: linear-gradient(var(--ceu) 47%, 80%, aliceblue 100%, var(--ceu_dark) 147%, 80%, aliceblue 200%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
+
+}
+
+.App:has(main>div>.noite)>main {
+  animation: darken ease-in-out 1s infinite;
+}
+
+@keyframes darken {
+  0% {
+    background-position: 50% 0%
+  }
+
+  50% {
+    background-position: 50% 100%
+  }
+
+  100% {
+    background-position: 50% 0%
+  }
+}
+
+.Search {
+  position: relative;
+}
+
+.SearchBox {
+  background-color: aliceblue;
+  border-radius: 1.1em 1.1em 0 0;
+  font-size: large;
+  padding: .5em;
+  border: none;
+  transition: ease-in-out .5s;
+}
+
+.SearchBox:placeholder-shown {
+  border-radius: 1.1em;
+}
+
+.CityList {
+  width: 100%;
+  color: #282c34;
+  font-size: large;
+  border: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.CityList * {
+  padding: .5em;
+  background-color: aliceblue;
+}
+
+.CityList *:last-child {
+  border-radius: 0 0 1.1em 1.1em;
+}
+
+.CityList *:hover {
+  background-color: rgb(158, 193, 223);
+}
+
+#MainInfo {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  gap: 2em;
 }
 
-.App-link {
-  color: #61dafb;
+.MainIcon {
+  height: 10rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.InfoDia {
+  text-align: start;
+  list-style: none;
+  font-size: large;
+  padding: 0;
+}
+
+p, h2 {
+  margin: 0;
+}
+
+h3 {
+  margin-top: 0;
 }
