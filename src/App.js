@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import logo from "./logo.png";
-import icon from "./icons/logo.png";
+// import icon from "./icons/logo.png";
 
 function Header() {
   return (
@@ -47,9 +47,10 @@ function SearchSelect({ queryRes, setLocation }) {
 function InfoDia({ forecast }) {
   const date = new Date();
   const iso = date.toISOString();
-  const val = iso.replace(iso.slice(-10), "00");
-  const key = forecast.hourly.time.indexOf(val);
-  console.log(key);
+  const day = iso.substring(0, 10);
+  const hour = iso.replace(iso.slice(-10), "00");
+  const dayKey = forecast.daily.time.indexOf(day);
+  const hourKey = forecast.hourly.time.indexOf(hour);
 
   const code = forecast.current.weathercode;
   const time = forecast.current.is_day ? "dia" : "noite";
@@ -62,13 +63,13 @@ function InfoDia({ forecast }) {
         <li>
           <h2>{forecast.current.temperature_2m}°C</h2>
           <h3>Limpo {code}</h3>
-          {forecast.daily.temperature_2m_max[key]}°C /{" "}
-          {forecast.daily.temperature_2m_min[key]}°C - Sensação de{" "}
+          {forecast.daily.temperature_2m_max[dayKey]}°C /{" "}
+          {forecast.daily.temperature_2m_min[dayKey]}°C - Sensação de{" "}
           {forecast.current.apparent_temperature}°C
         </li>
         <li>Umidade: {forecast.current.relativehumidity_2m}%</li>
         <li>
-          Chance de chuva: {forecast.hourly.precipitation_probability[key]}%
+          Chance de chuva: {forecast.hourly.precipitation_probability[hourKey]}%
         </li>
       </ul>
     </div>
@@ -109,7 +110,7 @@ function App() {
   }, [queryReq]);
 
   useEffect(() => {
-    getWeatherForecast(location.latitude, location.longitude);
+    getWeatherForecast( location.latitude, location.longitude);
     setQueryRes();
   }, [location]);
 
