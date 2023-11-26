@@ -13,11 +13,12 @@ input:focus-visible {
   text-align: center;
   color: aliceblue;
   --ceu: #4c6bab;
-  --ceu_dark: #1d0d2c;
+  /* --ceu_dark: #1d0d2c; */
+  --ceu_dark: #202020;
   --cloud_size: 60vh;
   font-size: clamp(1vh, 1.5rem, 3vh);
-  background: url('./imgs/Cloud1.svg') left -6% bottom repeat-x, url('./imgs/Cloud2.svg') right 30% bottom repeat-x, url('./imgs/Cloud3.svg') right -20% bottom repeat-x, linear-gradient(90deg, var(--ceu) 30%, var(--ceu_dark) 60%) no-repeat;
-  background-size: var(--cloud_size), var(--cloud_size), var(--cloud_size), 800%;
+  background: url('./imgs/Cloud1.svg') left -6% bottom repeat-x, url('./imgs/Cloud2.svg') right 30% bottom repeat-x, url('./imgs/Cloud3.svg') right -20% bottom repeat-x, url('./imgs/Stars.svg') top left 2100% repeat-y, linear-gradient(90deg, var(--ceu) 30%, var(--ceu_dark) 60%) no-repeat;
+  background-size: var(--cloud_size), var(--cloud_size), var(--cloud_size), 90vh, 800%;
   transition-property: background-position-x;
   transition: 1s ease-in-out;
 }
@@ -32,15 +33,15 @@ input:focus-visible {
   mask-image: linear-gradient(transparent 50%, 80%, black 100%);
   background-color: aliceblue;
   transition-property: background-color;
-  transition: 2s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
 .App:has(main>div>.noite) {
-  background-position-x: -106%, -70%, -120%, 100%;
+  background-position-x: -106%, -70%, -120%, 100%, 100%;
 }
 
 .App:has(main>div>.noite):before {
-  background-color: #150e1e;
+  background-color: #1f1f1f;
 }
 
 header {
@@ -62,6 +63,22 @@ main {
   align-items: center;
   gap: 1em;
 
+}
+
+.loading {
+  height: 5em;
+  aspect-ratio: 1;
+  animation: rotating 1s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .App:has(main>div>.noite)>main {
@@ -130,22 +147,6 @@ main {
 
 .MainIcon {
   height: 10em;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .MainIcon {
-    animation: pulse infinite 5s ease-in-out alternate-reverse;
-  }
-}
-
-@keyframes pulse {
-  from {
-    transform: scale(.95) rotate(-10deg);
-  }
-
-  to {
-    transform: scale(1) rotate(0);
-  }
 }
 
 .InfoDia {

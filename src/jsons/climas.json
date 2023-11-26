@@ -1,0 +1,282 @@
+{
+	"0":{
+		"dia":{
+			"descricao":"Ensolarado",
+			"image":"http://openweathermap.org/img/wn/01d@2x.png"
+		},
+		"noite":{
+			"descricao":"Limpo",
+			"image":"http://openweathermap.org/img/wn/01n@2x.png"
+		}
+	},
+	"1":{
+		"dia":{
+			"descricao":"Majoriariamente Ensolarado",
+			"image":"http://openweathermap.org/img/wn/01d@2x.png"
+		},
+		"noite":{
+			"descricao":"Majoriariamente Limpo",
+			"image":"http://openweathermap.org/img/wn/01n@2x.png"
+		}
+	},
+	"2":{
+		"dia":{
+			"descricao":"Parcialmente Nublado",
+			"image":"http://openweathermap.org/img/wn/02d@2x.png"
+		},
+		"noite":{
+			"descricao":"Parcialmente Nublado",
+			"image":"http://openweathermap.org/img/wn/02n@2x.png"
+		}
+	},
+	"3":{
+		"dia":{
+			"descricao":"Nublado",
+			"image":"http://openweathermap.org/img/wn/03d@2x.png"
+		},
+		"noite":{
+			"descricao":"Nublado",
+			"image":"http://openweathermap.org/img/wn/03n@2x.png"
+		}
+	},
+	"45":{
+		"dia":{
+			"descricao":"Enevoado",
+			"image":"http://openweathermap.org/img/wn/50d@2x.png"
+		},
+		"noite":{
+			"descricao":"Enevoado",
+			"image":"http://openweathermap.org/img/wn/50n@2x.png"
+		}
+	},
+	"48":{
+		"dia":{
+			"descricao":"Sincelo",
+			"image":"http://openweathermap.org/img/wn/50d@2x.png"
+		},
+		"noite":{
+			"descricao":"Sincelo",
+			"image":"http://openweathermap.org/img/wn/50n@2x.png"
+		}
+	},
+	"51":{
+		"dia":{
+			"descricao":"Leve Garoa",
+			"image":"http://openweathermap.org/img/wn/09d@2x.png"
+		},
+		"noite":{
+			"descricao":"Leve Garoa",
+			"image":"http://openweathermap.org/img/wn/09n@2x.png"
+		}
+	},
+	"53":{
+		"dia":{
+			"descricao":"Garoa",
+			"image":"http://openweathermap.org/img/wn/09d@2x.png"
+		},
+		"noite":{
+			"descricao":"Garoa",
+			"image":"http://openweathermap.org/img/wn/09n@2x.png"
+		}
+	},
+	"55":{
+		"dia":{
+			"descricao":"Garoa Pesada",
+			"image":"http://openweathermap.org/img/wn/09d@2x.png"
+		},
+		"noite":{
+			"descricao":"Garoa Pesada",
+			"image":"http://openweathermap.org/img/wn/09n@2x.png"
+		}
+	},
+	"56":{
+		"dia":{
+			"descricao":"Leve Garoa Gelada",
+			"image":"http://openweathermap.org/img/wn/09d@2x.png"
+		},
+		"noite":{
+			"descricao":"Leve Garoa Gelada",
+			"image":"http://openweathermap.org/img/wn/09n@2x.png"
+		}
+	},
+	"57":{
+		"dia":{
+			"descricao":"Garoa Gelada",
+			"image":"http://openweathermap.org/img/wn/09d@2x.png"
+		},
+		"noite":{
+			"descricao":"Garoa Gelada",
+			"image":"http://openweathermap.org/img/wn/09n@2x.png"
+		}
+	},
+	"61":{
+		"dia":{
+			"descricao":"Chuva Leve",
+			"image":"http://openweathermap.org/img/wn/10d@2x.png"
+		},
+		"noite":{
+			"descricao":"Chuva Leve",
+			"image":"http://openweathermap.org/img/wn/10n@2x.png"
+		}
+	},
+	"63":{
+		"dia":{
+			"descricao":"Chuva",
+			"image":"http://openweathermap.org/img/wn/10d@2x.png"
+		},
+		"noite":{
+			"descricao":"Chuva",
+			"image":"http://openweathermap.org/img/wn/10n@2x.png"
+		}
+	},
+	"65":{
+		"dia":{
+			"descricao":"Chuva Pesada",
+			"image":"http://openweathermap.org/img/wn/10d@2x.png"
+		},
+		"noite":{
+			"descricao":"Chuva Pesada",
+			"image":"http://openweathermap.org/img/wn/10n@2x.png"
+		}
+	},
+	"66":{
+		"dia":{
+			"descricao":"Chuva Gelada Leve",
+			"image":"http://openweathermap.org/img/wn/10d@2x.png"
+		},
+		"noite":{
+			"descricao":"Chuva Gelada Leve",
+			"image":"http://openweathermap.org/img/wn/10n@2x.png"
+		}
+	},
+	"67":{
+		"dia":{
+			"descricao":"Chuva Gelada",
+			"image":"http://openweathermap.org/img/wn/10d@2x.png"
+		},
+		"noite":{
+			"descricao":"Chuva Gelada",
+			"image":"http://openweathermap.org/img/wn/10n@2x.png"
+		}
+	},
+	"71":{
+		"dia":{
+			"descricao":"Pouca Neve",
+			"image":"http://openweathermap.org/img/wn/13d@2x.png"
+		},
+		"noite":{
+			"descricao":"Pouca Neve",
+			"image":"http://openweathermap.org/img/wn/13n@2x.png"
+		}
+	},
+	"73":{
+		"dia":{
+			"descricao":"Neve",
+			"image":"http://openweathermap.org/img/wn/13d@2x.png"
+		},
+		"noite":{
+			"descricao":"Neve",
+			"image":"http://openweathermap.org/img/wn/13n@2x.png"
+		}
+	},
+	"75":{
+		"dia":{
+			"descricao":"Neve Pesada",
+			"image":"http://openweathermap.org/img/wn/13d@2x.png"
+		},
+		"noite":{
+			"descricao":"Neve Pesada",
+			"image":"http://openweathermap.org/img/wn/13n@2x.png"
+		}
+	},
+	"77":{
+		"dia":{
+			"descricao":"Grãos de Neve",
+			"image":"http://openweathermap.org/img/wn/13d@2x.png"
+		},
+		"noite":{
+			"descricao":"Grãos de Neve",
+			"image":"http://openweathermap.org/img/wn/13n@2x.png"
+		}
+	},
+	"80":{
+		"dia":{
+			"descricao":"Bátega Leve",
+			"image":"http://openweathermap.org/img/wn/09d@2x.png"
+		},
+		"noite":{
+			"descricao":"Bátega Leve",
+			"image":"http://openweathermap.org/img/wn/09n@2x.png"
+		}
+	},
+	"81":{
+		"dia":{
+			"descricao":"Bátega",
+			"image":"http://openweathermap.org/img/wn/09d@2x.png"
+		},
+		"noite":{
+			"descricao":"Bátega",
+			"image":"http://openweathermap.org/img/wn/09n@2x.png"
+		}
+	},
+	"82":{
+		"dia":{
+			"descricao":"Bátega Pesada",
+			"image":"http://openweathermap.org/img/wn/09d@2x.png"
+		},
+		"noite":{
+			"descricao":"Bátega Pesada",
+			"image":"http://openweathermap.org/img/wn/09n@2x.png"
+		}
+	},
+	"85":{
+		"dia":{
+			"descricao":"Leve Bátega de Neve",
+			"image":"http://openweathermap.org/img/wn/13d@2x.png"
+		},
+		"noite":{
+			"descricao":"Leve Bátega de Neve",
+			"image":"http://openweathermap.org/img/wn/13n@2x.png"
+		}
+	},
+	"86":{
+		"dia":{
+			"descricao":"Bátega de Neve",
+			"image":"http://openweathermap.org/img/wn/13d@2x.png"
+		},
+		"noite":{
+			"descricao":"Bátega de Neve",
+			"image":"http://openweathermap.org/img/wn/13n@2x.png"
+		}
+	},
+	"95":{
+		"dia":{
+			"descricao":"Tempestade",
+			"image":"http://openweathermap.org/img/wn/11d@2x.png"
+		},
+		"noite":{
+			"descricao":"Tempestade",
+			"image":"http://openweathermap.org/img/wn/11n@2x.png"
+		}
+	},
+	"96":{
+		"dia":{
+			"descricao":"Tempestade Leve com Granizo",
+			"image":"http://openweathermap.org/img/wn/11d@2x.png"
+		},
+		"noite":{
+			"descricao":"Tempestade Leve com Granizo",
+			"image":"http://openweathermap.org/img/wn/11n@2x.png"
+		}
+	},
+	"99":{
+		"dia":{
+			"descricao":"Tempestade com Granizo",
+			"image":"http://openweathermap.org/img/wn/11d@2x.png"
+		},
+		"noite":{
+			"descricao":"Tempestade com Granizo",
+			"image":"http://openweathermap.org/img/wn/11n@2x.png"
+		}
+	}
+}
