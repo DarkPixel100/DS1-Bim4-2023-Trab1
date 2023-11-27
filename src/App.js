@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import style from "./App.module.css";
 import logo from "./logo.png";
 import loading from "./imgs/Loading.svg";
 import icones from "./jsons/climas.json";
@@ -7,7 +7,7 @@ import icones from "./jsons/climas.json";
 function Header() {
   return (
     <header>
-      <img src={logo} className="App-logo" alt="logo" />
+      <img src={logo} className={style.AppLogo} alt="logo" />
       <h1>Clima</h1>
     </header>
   );
@@ -17,11 +17,10 @@ function SearchBox({ setQueryReq }) {
   return (
     <input
       type="search"
-      class="SearchBox"
+      className={style.SearchBox}
       placeholder="Nome da cidade..."
       onChange={(e) => {
         setQueryReq(e.target.value);
-        e.target.classList.add("filled");
       }}
     />
   );
@@ -29,7 +28,7 @@ function SearchBox({ setQueryReq }) {
 
 function SearchSelect({ queryRes, setLocation }) {
   return (
-    <div class="CityList">
+    <div className={style.CityList}>
       {queryRes.map((city, key) => (
         <p
           key={key}
@@ -58,9 +57,9 @@ function InfoDia({ previsao, dia }) {
   const code = previsao.hourly.weathercode[hourKey];
 
   return (
-    <div id="MainInfo" class={turno}>
-      <img src={icones[code][turno].image} class="MainIcon" alt="" />
-      <ul class="InfoDia">
+    <div id="MainInfo" className={turno=='noite'?style.noite:style.dia}>
+      <img src={icones[code][turno].image} className={style.MainIcon} alt="" />
+      <ul className={style.InfoDia}>
         <h3>{date.toDateString().split(" ").join(", ")}</h3>
         <li>
           <h2>{previsao.hourly.temperature_2m[hourKey]}°C</h2>
@@ -96,7 +95,7 @@ function App() {
 
   async function getPrevisaoTempo(latitude, longitude) {
     setIsOnload(true);
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=32&longitude=32&current=is_day&hourly=temperature_2m,precipitation_probability,relativehumidity_2m,weathercode,apparent_temperature&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=America%2FSao_Paulo&past_days=1&forecast_days=3`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=is_day&hourly=temperature_2m,precipitation_probability,relativehumidity_2m,weathercode,apparent_temperature&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=America%2FSao_Paulo&past_days=1&forecast_days=3`;
     const res = await fetch(url);
     const obj = await res.json();
 
@@ -117,10 +116,10 @@ function App() {
   }, [location]);
 
   return (
-    <div class="App">
+    <div className={style.App}>
       <Header></Header>
       <main>
-        <div class="Search">
+        <div className={style.Search}>
           <SearchBox setQueryReq={setQueryReq} setQueryRes={setQueryRes} />
           {queryRes ? (
             <SearchSelect queryRes={queryRes} setLocation={setLocation} />
@@ -128,16 +127,16 @@ function App() {
         </div>
         {isOnLoad ? (
           location.name ? (
-            <img class="loading" src={loading} alt="" />
+            <img className={style.loading} src={loading} alt="" />
           ) : (
             <h3>Selecione uma cidade</h3>
           )
         ) : (
-          <div class="Info">
-            <h2 class="Localidade">
+          <div className={style.Info}>
+            <h2 className={style.Localidade}>
               {[location.name, ", ", location.admin1, " - ", location.country]}
             </h2>
-            <div class="Dias">
+            <div className={style.Dias}>
               <InfoDia previsao={previsao} dia={-1}></InfoDia>
               <InfoDia previsao={previsao} dia={0}></InfoDia>
               <InfoDia previsao={previsao} dia={1}></InfoDia>
