@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import logo from "./logo.png";
 import loading from "./imgs/Loading.svg";
-import icons from "./jsons/climas.json";
+import icones from "./jsons/climas.json";
 
 function Header() {
   return (
@@ -13,7 +13,7 @@ function Header() {
   );
 }
 
-function SearchBox({ setQueryReq, setQueryRes }) {
+function SearchBox({ setQueryReq }) {
   return (
     <input
       type="search"
@@ -45,30 +45,31 @@ function SearchSelect({ queryRes, setLocation }) {
   );
 }
 
-function InfoDia({ previsao, icones }) {
-  const date = new Date();
+function InfoDia({ previsao, dia }) {
+  let date = new Date();
+  date.setDate(date.getDate() + dia);
   const iso = date.toISOString();
   const day = iso.substring(0, 10);
   const hour = iso.replace(iso.slice(-10), "00");
   const dayKey = previsao.daily.time.indexOf(day);
   const hourKey = previsao.hourly.time.indexOf(hour);
-
-  const code = previsao.current.weathercode;
   const turno = previsao.current.is_day ? "dia" : "noite";
 
-  console.log(icons[code][turno].image);
+  const code = previsao.hourly.weathercode[hourKey];
+
   return (
     <div id="MainInfo" class={turno}>
-      <img src={icons[code][turno].image} class="MainIcon" alt="" />
+      <img src={icones[code][turno].image} class="MainIcon" alt="" />
       <ul class="InfoDia">
+        <h3>{date.toDateString().split(" ").join(", ")}</h3>
         <li>
-          <h2>{previsao.current.temperature_2m}°C</h2>
-          <h3>{icons[code][turno].descricao}</h3>
+          <h2>{previsao.hourly.temperature_2m[hourKey]}°C</h2>
+          <h3>{icones[code][turno].descricao}</h3>
           {previsao.daily.temperature_2m_max[dayKey]}°C /{" "}
           {previsao.daily.temperature_2m_min[dayKey]}°C - Sensação de{" "}
-          {previsao.current.apparent_temperature}°C
+          {previsao.hourly.apparent_temperature[hourKey]}°C
         </li>
-        <li>Umidade: {previsao.current.relativehumidity_2m}%</li>
+        <li>Umidade: {previsao.hourly.relativehumidity_2m[hourKey]}%</li>
         <li>
           Chance de chuva: {previsao.hourly.precipitation_probability[hourKey]}%
         </li>
@@ -95,12 +96,12 @@ function App() {
 
   async function getPrevisaoTempo(latitude, longitude) {
     setIsOnload(true);
-
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relativehumidity_2m,apparent_temperature,is_day,weathercode&hourly=precipitation_probability&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=America%2FSao_Paulo`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=32&longitude=32&current=is_day&hourly=temperature_2m,precipitation_probability,relativehumidity_2m,weathercode,apparent_temperature&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=America%2FSao_Paulo&past_days=1&forecast_days=3`;
     const res = await fetch(url);
     const obj = await res.json();
 
     if (obj.current) {
+      console.log(obj);
       setPrevisao(obj);
       setIsOnload(false);
     }
@@ -133,10 +134,14 @@ function App() {
           )
         ) : (
           <div class="Info">
-            <h2>
+            <h2 class="Localidade">
               {[location.name, ", ", location.admin1, " - ", location.country]}
             </h2>
-            <InfoDia previsao={previsao}></InfoDia>
+            <div class="Dias">
+              <InfoDia previsao={previsao} dia={-1}></InfoDia>
+              <InfoDia previsao={previsao} dia={0}></InfoDia>
+              <InfoDia previsao={previsao} dia={1}></InfoDia>
+            </div>
           </div>
         )}
       </main>
